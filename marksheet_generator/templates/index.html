@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="templates/style.css" /> -->
+    <!-- <style>
+      body {
+        text-align: center;
+        background-color: whitesmoke;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+    </style> -->
+    <title>Marksheet Generator</title>
+  </head>
+
+  <body style="text-align: center;">
+    
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <h2>Browse for master_roll.csv</h2>
+      <input type="file" name="myfile" />
+      <button type="submit">Upload</button>
+      <br />
+      <h2>Browse for responses.csv</h2>
+      <input type="file" name="myfile" />
+      <button type="submit">Upload</button>
+    </form>
+    <br /><br />
+
+    <form method="get" action="marks">
+      <p>Marks for correct answer: <input type="float" name="correct" /></p>
+      <p>Marks for wrong answer: <input type="float" name="wrong" /></p>
+      <button type="submit">Submit</button>
+    </form>
+
+    <br />
+    <p>
+      <a href="generated"><button>Generate Roll No. wise Marksheet</button></a>
+    </p>
+    <p>
+      <a href="concise_generated"
+        ><button>Generate Concise Marksheet</button></a
+      >
+    </p>
+    <p>
+      <a href="email_sent"><button>Send Email</button></a>
+    </p>
+  </body>
+</html>
